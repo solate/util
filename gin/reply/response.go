@@ -23,14 +23,9 @@ func Success(c *gin.Context, data interface{}) {
 	c.JSON(http.StatusOK, &Response{ErrSuccessCode, ErrSuccessMsg, data})
 }
 
-// 返回失败
-func Error(c *gin.Context, httpCode, errCode int, errMsg string, data interface{}) {
-	c.JSON(httpCode, &Response{errCode, errMsg, data})
-}
-
 // 返回失败, 但是参数可以用方法设置
 //options: httpCode, errCode int, errMsg string, data
-func ErrorFunc(c *gin.Context, httpCode int, options ...func(*Response)) {
+func Error(c *gin.Context, httpCode int, options ...func(*Response)) {
 
 	// 设置参数
 	res := &Response{}
@@ -41,7 +36,7 @@ func ErrorFunc(c *gin.Context, httpCode int, options ...func(*Response)) {
 }
 
 // 设置错误码, 一般有code 就会有msg
-func SetCodeAndMsg(code int, msg string) func(*Response) {
+func SetErrCodeAndMsg(code int, msg string) func(*Response) {
 	return func(response *Response) {
 		response.ErrCode = code
 		response.ErrMsg = msg
@@ -52,5 +47,19 @@ func SetCodeAndMsg(code int, msg string) func(*Response) {
 func SetData(data interface{}) func(*Response) {
 	return func(response *Response) {
 		response.Data = data
+	}
+}
+
+// 设置错误码
+func SetErrCode(code int) func(*Response) {
+	return func(response *Response) {
+		response.ErrCode = code
+	}
+}
+
+// 设置错误码
+func SetErrMsg(msg string) func(*Response) {
+	return func(response *Response) {
+		response.ErrMsg = msg
 	}
 }
