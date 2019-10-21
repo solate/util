@@ -14,9 +14,9 @@ type response struct {
 
 // 回复body结构
 type body struct {
-	ErrCode int         `json:"err_code"` // 错误码
-	ErrMsg  string      `json:"err_msg"`  // 错误提示信息
-	Data    interface{} `json:"data"`     // 返回数据
+	Code int         `json:"code"` // 错误码
+	Msg  string      `json:"msg"`  // 错误提示信息
+	Data interface{} `json:"data"` // 返回数据
 }
 
 const (
@@ -26,7 +26,7 @@ const (
 
 func Response(c *gin.Context, options ...func(*response)) {
 	// 设置参数
-	res := &response{http.StatusOK, body{ErrCode: ErrSuccessCode, ErrMsg: ErrSuccessMsg}}
+	res := &response{http.StatusOK, body{Code: ErrSuccessCode, Msg: ErrSuccessMsg}}
 	for _, option := range options {
 		option(res)
 	}
@@ -41,10 +41,10 @@ func SetHttpCode(code int) func(*response) {
 }
 
 // 设置错误码, 一般有code 就会有msg
-func SetErrCodeAndMsg(code int, msg string) func(*response) {
+func SetCodeAndMsg(code int, msg string) func(*response) {
 	return func(response *response) {
-		response.ErrCode = code
-		response.ErrMsg = msg
+		response.Code = code
+		response.Msg = msg
 	}
 }
 
@@ -56,15 +56,15 @@ func SetData(data interface{}) func(*response) {
 }
 
 // 设置错误码
-func SetErrCode(code int) func(*response) {
+func SetCode(code int) func(*response) {
 	return func(response *response) {
-		response.ErrCode = code
+		response.Code = code
 	}
 }
 
 // 设置错误码
-func SetErrMsg(msg string) func(*response) {
+func SetMsg(msg string) func(*response) {
 	return func(response *response) {
-		response.ErrMsg = msg
+		response.Msg = msg
 	}
 }
