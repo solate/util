@@ -1,6 +1,6 @@
 package mail
 
-import "github.com/solate/ZTest/gomail-master"
+import "gopkg.in/gomail.v2"
 
 const (
 	ServerHost = "smtp.qq.com" // 邮件服务器
