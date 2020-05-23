@@ -78,5 +78,9 @@ go 原生封装
 
 重试方法
 
+## statsd 
+
+statsd udp 发送消息到influxdb中
+
 
 
