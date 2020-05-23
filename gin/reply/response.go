@@ -14,9 +14,9 @@ type response struct {
 
 // 回复body结构
 type body struct {
-	Code int         `json:"code"` // 错误码
-	Msg  string      `json:"msg"`  // 错误提示信息
-	Data interface{} `json:"data"` // 返回数据
+	Code    int         `json:"code"`    // 错误码
+	Message string      `json:"message"` // 错误提示信息
+	Data    interface{} `json:"data"`    // 返回数据
 }
 
 const (
@@ -26,7 +26,7 @@ const (
 
 func Response(c *gin.Context, options ...func(*response)) {
 	// 设置参数
-	res := &response{http.StatusOK, body{Code: ErrSuccessCode, Msg: ErrSuccessMsg}}
+	res := &response{http.StatusOK, body{Code: ErrSuccessCode, Message: ErrSuccessMsg}}
 	for _, option := range options {
 		option(res)
 	}
@@ -40,11 +40,11 @@ func SetHttpCode(code int) func(*response) {
 	}
 }
 
-// 设置错误码, 一般有code 就会有msg
-func SetCodeAndMsg(code int, msg string) func(*response) {
+// 设置错误码, 一般有code 就会有message
+func SetCodeMessage(code int, message string) func(*response) {
 	return func(response *response) {
 		response.Code = code
-		response.Msg = msg
+		response.Message = message
 	}
 }
 
@@ -63,8 +63,8 @@ func SetCode(code int) func(*response) {
 }
 
 // 设置错误码
-func SetMsg(msg string) func(*response) {
+func SetMessage(message string) func(*response) {
 	return func(response *response) {
-		response.Msg = msg
+		response.Message = message
 	}
 }
