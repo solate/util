@@ -57,3 +57,22 @@ go 原生封装
 ## orm 
 
 对gorm mysql 使用封装，返回带连接池的db, 不用每次copy同样的东西
+
+## project
+
+生成项目，需要用到的工具包
+
+### configuration
+
+读取toml格式的配置文件，并解析成结构体
+
+### pprof
+
+默认使用10000端口开启pprof 监听，只要在import中引用就好
+
+### reply 
+
+普通返回json格式内容
+
+
+
