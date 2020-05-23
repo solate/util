@@ -22,6 +22,29 @@ etcd v3 客户端封装，项目直接使用单例
 
 返回json串, 包含错误码，错误信息，数据三部分(err_code, err_msg, data)
 
+## go
+
+go 原生封装
+
+### copy
+
+两个简单的struct直接进行拷贝
+
+## gofile
+
+对file 操作封装，少些代码
+
+## gostring
+
+对string 的一些封装
+
+## gotemplate
+
+对模板的封装
+
+## network
+
+网络相关的封装，现在只有获取本机IP
 
 
 ## orm 
