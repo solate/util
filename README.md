@@ -50,20 +50,10 @@ go 原生封装
 
 封装了zap logger, 单例使用
 
-## orm 
-
-### gorm 
-
-对gorm mysql 使用封装，返回带连接池的db, 不用每次copy同样的东西
-
-
-## log
-
-### zap
-
-对高性能zap库的封装
-
-
 ## mail
 
 使用gomail 发送邮件包
+
+## orm 
+
+对gorm mysql 使用封装，返回带连接池的db, 不用每次copy同样的东西
