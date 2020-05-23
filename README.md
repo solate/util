@@ -82,5 +82,7 @@ go 原生封装
 
 statsd udp 发送消息到influxdb中
 
+## uuid
 
+google uuid 生成
 
