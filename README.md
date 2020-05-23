@@ -30,22 +30,25 @@ go 原生封装
 
 两个简单的struct直接进行拷贝
 
-## gofile
+### gofile
 
 对file 操作封装，少些代码
 
-## gostring
+### gostring
 
 对string 的一些封装
 
-## gotemplate
+### gotemplate
 
 对模板的封装
 
-## network
+### network
 
 网络相关的封装，现在只有获取本机IP
 
+## log
+
+封装了zap logger, 单例使用
 
 ## orm 
 
