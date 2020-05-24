@@ -22,6 +22,10 @@ etcd v3 客户端封装，项目直接使用单例
 
 返回json串, 包含错误码，错误信息，数据三部分(err_code, err_msg, data)
 
+### server
+
+一个gin 简单的实现，直接注册路由就可以使用
+
 ## go
 
 go 原生封装
@@ -65,6 +69,10 @@ go 原生封装
 ### configuration
 
 读取toml格式的配置文件，并解析成结构体
+
+## errorUtil
+
+构造项目需要用到的基础错误
 
 ### pprof
 
